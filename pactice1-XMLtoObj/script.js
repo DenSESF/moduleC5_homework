@@ -23,7 +23,7 @@ const strXML = `
 parserXML.parseFromString(strXML, 'application/xml');
 const docXML = parserXML.parseFromString(strXML, 'application/xml');
 
-const result = new Object;
+const result = {};
 const list = docXML.children[0];
 
 result[list.nodeName] = [];
@@ -35,7 +35,7 @@ for (let i = 0; i < list.childElementCount; i++) {
 
 function XMLtoObj(child) {
   const studentProp = child.children;
-  const objResult = new Object;
+  const objResult = {};
   for (let i = 0; i < child.childElementCount; i ++) {
     if (studentProp[i].childElementCount === 0) {
       objResult[studentProp[i].nodeName] = studentProp[i].textContent;
@@ -52,7 +52,7 @@ function XMLtoObj(child) {
     }
   }
   return objResult;
-};
+}
 
 console.log(result);
 
